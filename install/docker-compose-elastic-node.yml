@@ -19,18 +19,20 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - /data/elasticsearch/workshop/1:/usr/share/elasticsearch/data
+      - /Users/adrian.cejudo/elastic/curso-paradigma/data/workshop/1:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
       - "9300:9300"
 
   cerebro:
-    image: cerebro:0.8.1
+    image: lmenezes/cerebro:0.8.5
     container_name: cerebro-workshop
     ports:
       - "9000:9000"
     external_links:
-      - elasticsearch-workshop-1:elasticsearch1
+      - /Users/adrian.cejudo/elastic/cerebro:/var/lib/cerebro/
+      - /Users/adrian.cejudo/elastic/cerebro:/var/lib/cerebro/cerebro.db
+      - /Users/adrian.cejudo/elastic/cerebro:/usr/share/cerebro
 
   kibana:
     image: docker.elastic.co/kibana/kibana:6.5.4

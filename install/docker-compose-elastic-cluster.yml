@@ -12,7 +12,7 @@ services:
       - "xpack.monitoring.enabled=false"     # Disables xpack monitoring
       - "xpack.watcher.enabled=false"        # Disables xpack watcher
       - "xpack.ml.enabled=false"             # Disables xpack machine learning
-      - "bootstrap.memory_lock=true"         # Disables memory swap
+      - "bootstrap.memory_lock=false"         # Disables memory swap
       - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m"   # Sets allocated memory
       - "discovery.zen.ping.unicast.hosts=elasticsearch-workshop-1,elasticsearch-workshop-2,elasticsearch-workshop-3"
       - "discovery.zen.minimum_master_nodes=2"
@@ -21,7 +21,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - /data/elasticsearch/workshop/1:/usr/share/elasticsearch/data
+      - /Users/adrian.cejudo/elastic/curso-paradigma/data/workshop/1:/usr/share/elasticsearch/data
     ports:
       - "9201:9200"
       - "9301:9300"
@@ -37,7 +37,7 @@ services:
       - "xpack.monitoring.enabled=false"     # Disables xpack monitoring
       - "xpack.watcher.enabled=false"        # Disables xpack watcher
       - "xpack.ml.enabled=false"             # Disables xpack machine learning
-      - "bootstrap.memory_lock=true"         # Disables memory swap
+      - "bootstrap.memory_lock=false"         # Disables memory swap
       - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m"   # Sets allocated memory
       - "discovery.zen.ping.unicast.hosts=elasticsearch-workshop-1,elasticsearch-workshop-2,elasticsearch-workshop-3"
       - "discovery.zen.minimum_master_nodes=2"
@@ -46,7 +46,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - /data/elasticsearch/workshop/2:/usr/share/elasticsearch/data
+      - /Users/adrian.cejudo/elastic/curso-paradigma/data/workshop/2:/usr/share/elasticsearch/data
     ports:
       - "9202:9200"
       - "9302:9300"
@@ -62,7 +62,7 @@ services:
       - "xpack.monitoring.enabled=false"     # Disables xpack monitoring
       - "xpack.watcher.enabled=false"        # Disables xpack watcher
       - "xpack.ml.enabled=false"             # Disables xpack machine learning
-      - "bootstrap.memory_lock=true"         # Disables memory swap
+      - "bootstrap.memory_lock=false"         # Disables memory swap
       - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m"   # Sets allocated memory
       - "discovery.zen.ping.unicast.hosts=elasticsearch-workshop-1,elasticsearch-workshop-2,elasticsearch-workshop-3"
       - "discovery.zen.minimum_master_nodes=2"
@@ -71,13 +71,13 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - /data/elasticsearch/workshop/3:/usr/share/elasticsearch/data
+      - /Users/adrian.cejudo/elastic/curso-paradigma/data/workshop/3:/usr/share/elasticsearch/data
     ports:
       - "9203:9200"
       - "9303:9300"
 
   cerebro:
-    image: cerebro:0.8.1
+    image: lmenezes/cerebro:0.8.5
     container_name: cerebro-workshop
     ports:
       - "9000:9000"
